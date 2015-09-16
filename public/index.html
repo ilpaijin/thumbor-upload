@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Test</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+
+            <h1>Image uploader</h1>
+
+
+            <div class="image-box-preview">
+
+                <span class="upload-outcome-mark">
+                    <span class="glyphicon glyphicon-ok "></span>
+                </span>
+
+                <span class="loading"></span>
+
+                <img id="preview" src="https://placehold.it/350x250p" height="250" alt="the preview" />
+
+            </div>
+
+            <form id="image_uploader_form" method="POST">
+
+                <div class="form-group">
+                    <label for="myImage">Choose your image</label>
+                    <input type="file" id="myImage">
+                </div>
+
+                <button type="submit" class="btn btn-default">Upload</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>

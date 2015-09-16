@@ -1,0 +1,17 @@
+{
+    "name": "favoroute-image-uploader",
+    "authors": [
+        {
+            "name": "ilpaijin",
+            "email": "ilpaijin@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Favoroute\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/http-foundation": "^2.7"
+    }
+}

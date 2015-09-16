@@ -1,0 +1,33 @@
+.image-box-preview {
+    position:relative;
+}
+
+.image-box-preview #preview {
+    border:1px solid #fff;
+    margin:20px auto;
+    padding:6px;
+}
+
+.upload-outcome-mark {
+    position: relative;
+}
+
+.upload-outcome-mark > span {
+    display:none;
+    position:absolute;
+    left:20px;
+    top: 36px;
+}
+
+.upload-outcome-mark .success {
+    background:white;
+    border-radius:22px;
+    color:green;
+    padding:16px;
+}
+
+.loading {
+    position: absolute;
+    left: 52px;
+    top: 46px;
+}
