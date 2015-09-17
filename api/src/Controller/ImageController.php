@@ -12,6 +12,12 @@ namespace Favoroute\Controller;
  */
 class ImageController extends ApiController
 {
+    /**
+     * POST a resource
+     *
+     * @param  Symfony\Component\HttpFoundation\Request $request
+     * @return mixed
+     */
     public function post($request)
     {
 

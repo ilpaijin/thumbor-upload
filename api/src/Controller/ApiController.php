@@ -14,6 +14,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class ApiController
 {
+    /**
+     * sugar response wrapper
+     *
+     * @param mixed $data
+     * @return Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function respond($data)
     {
         $data = array(

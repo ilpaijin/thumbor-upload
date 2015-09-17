@@ -18,9 +18,22 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class Application
 {
+    /**
+     * @var [type]
+     */
     private $request;
+
+    /**
+     * @var array
+     */
     private $routes = array();
 
+
+    /**
+     * run the application
+     *
+     * @return mixed
+     */
     public function run()
     {
         $this->boot();
@@ -44,16 +57,33 @@ class Application
         $response->send();
     }
 
+    /**
+     * post router's action
+     * @param  string $path
+     * @param  string $controller
+     * @return void
+     */
     public function post($path, $controller)
     {
         $this->routes[$path] = $controller;
     }
 
+    /**
+     * boot the application behaviour
+     *
+     * @return void
+     */
     public function boot()
     {
         set_exception_handler(array($this, 'exception_handler'));
     }
 
+    /**
+     * Exception handler
+     *
+     * @param  Exception $e
+     * @return mixed
+     */
     public function exception_handler(Exception $e)
     {
         $response = new JsonResponse(
@@ -70,6 +100,12 @@ class Application
        $response->send();
     }
 
+    /**
+     * Sugar for erorr methid call, mapped to http spec responses
+     *
+     * @throws Exception
+     * @return void
+     */
     public function notFound()
     {
         throw new Exception('Endpoint not found', 404);
