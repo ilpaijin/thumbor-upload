@@ -1,11 +1,22 @@
+.jumbotron {
+    overflow: hidden;
+}
+
 .image-box-preview {
+    overflow: hidden;
     position:relative;
+    width: 350px;
 }
 
 .image-box-preview #preview {
     border:1px solid #fff;
     margin:20px auto;
     padding:6px;
+}
+
+.data-box-preview {
+    margin:10px 0 0 10px;
+    width: 660px;
 }
 
 .upload-outcome-mark {
