@@ -43,18 +43,18 @@ class ThumborUploader implements ProxyUploader
 
         $response = $client->post(
             $this->host.'/image',
-            [
-                'multipart' => [
-                    [
+            array(
+                'multipart' => array(
+                    array(
                         'name' => 'media',
                         'contents' => fopen($image[$fileKey]->getPathname(), 'r'),
                         'filename' => $image[$fileKey]->getClientOriginalName(),
-                        'headers'  => [
+                        'headers'  => array(
                             'Slug' => 'aaaa.jpg'
-                        ]
-                    ]
-                ]
-            ]
+                        )
+                    )
+                )
+            )
         );
 
         if($response->getStatusCode() !== 201) {
