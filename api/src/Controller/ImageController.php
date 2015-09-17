@@ -2,6 +2,10 @@
 
 namespace Favoroute\Controller;
 
+use Favoroute\Exception;
+use Favoroute\Model\Repository\ImageRepository;
+use Favoroute\Service\Builder\ImageBuilder;
+
 /**
  *
  * @package    Favoroute Image Uploader
@@ -15,18 +19,30 @@ class ImageController extends ApiController
     /**
      * POST a resource
      *
+     * TODO Image coming from the $_FILES should be unified to a DTO.
+     *
      * @param  Symfony\Component\HttpFoundation\Request $request
      * @return mixed
      */
     public function post($request)
     {
+        $image = $request->files->all();
 
-        var_dump($request->files->all());
-        exit;
-        sleep(1);
+        if (empty($image)) {
+            throw new Exception\UnprocessableEntity();
+        }
 
-        $data = array('image' => true);
+        $uploaderImageUrl = $this->container['imageUploader']->upload($image);
 
-        return $this->respond($data);
+        //Coupled but easily repleceable with a manager
+        $imageRepository = new ImageRepository($this->container['db']);
+
+        // cathcing exception/error needed here
+        $image = $this->container['imageBuilder']->build($image, $uploaderImageUrl);
+
+        // cathcing exception/error needed here
+        $image = $imageRepository->save($image);
+
+        return $this->respond($image, 201);
     }
 }

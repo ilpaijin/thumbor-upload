@@ -15,6 +15,21 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class ApiController
 {
     /**
+     * @var [type]
+     */
+    protected $container;
+
+    /**
+     * [__construct description]
+     *
+     * @param array $container
+     */
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
+
+    /**
      * sugar response wrapper
      *
      * @param mixed $data
@@ -24,7 +39,7 @@ class ApiController
     {
         $data = array(
             'meta' => '',
-            'data' => $data
+            'data' => (array)$data
         );
 
         return new JsonResponse($data);
