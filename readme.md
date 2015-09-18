@@ -1,4 +1,4 @@
-###Api
+###Thumbor test
 
 #### Requirement
 
@@ -10,12 +10,11 @@
 #### Install
 
 - configure Api VirtualHost
-- `composer install`
-- thumbor -c data/thumbor.conf
+- move to api folder and run `composer install`
 
 #### run
 
-- from root folder run `make -j init`
+- from root folder run `make -j init` and open the browser to localhost:8000
 
 ##### VirtualHost example
 
