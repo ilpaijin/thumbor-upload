@@ -45,14 +45,14 @@
                     console.info(response.data);
                     $('.upload-outcome-mark > span').addClass('success').fadeIn(1000).css("display","block");
                     $('#preview').css({'opacity': 1}).siblings('.loading').html("");
-
-                    $('h4.id').find('span').html(response.data.id);
-                    $('h4.fileLabel').find('span').html(response.data.label);
-                    $('h4.finename').find('span').html(response.data.filename);
-                    $('h4.width').find('span').html(response.data.width);
-                    $('h4.height').find('span').html(response.data.height);
-                    $('h4.url').find('span').html(response.data.url);
-                    $('h4.created_at').find('span').html(response.data.timestamp);
+console.info(response.data);
+                    $('li.id').find('.value').html(response.data.id);
+                    $('li.fileLabel').find('.value').html(response.data.label);
+                    $('li.filename').find('.value').html(response.data.filename);
+                    $('li.width').find('.value').html(response.data.width);
+                    $('li.height').find('.value').html(response.data.height);
+                    $('li.url').find('.value').html(response.data.url);
+                    $('li.created_at').find('.value').html(response.data.timestamp);
                 }
             }
         });

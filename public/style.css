@@ -7,7 +7,6 @@
     position:relative;
     width: 350px;
 }
-
 .image-box-preview #preview {
     border:1px solid #fff;
     margin:20px auto;
@@ -15,21 +14,28 @@
 }
 
 .data-box-preview {
-    margin:10px 0 0 10px;
-    width: 660px;
+    margin:20px 0 0 20px;
+    width: 650px;
+}
+.data-box-preview li {
+    font-size: 18px;
+    margin: 4px 0;
+}
+.data-box-preview li .value{
+    font-size: 14px;
+    font-style: italic;
+    margin: 0px 0 0 4px;
 }
 
 .upload-outcome-mark {
     position: relative;
 }
-
 .upload-outcome-mark > span {
     display:none;
     position:absolute;
     left:20px;
     top: 36px;
 }
-
 .upload-outcome-mark .success {
     background:white;
     border-radius:22px;
