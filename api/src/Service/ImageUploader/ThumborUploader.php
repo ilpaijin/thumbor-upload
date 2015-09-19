@@ -17,13 +17,27 @@ class ThumborUploader implements ProxyUploader
     /**
      * @var string
      */
-    protected $host = 'http://localhost:8888';
+    protected $host;
+
+    /**
+     * Of course this shoulf live in a config file, but it's ok for demo purpose.
+     */
+    public function __construct()
+    {
+        $this->host = getenv('ENV') === 'development' ? 'http://localhost:8888' : 'http://188.226.195.167:8888';
+    }
 
     /**
      * @var array
      */
     protected $allowedExtensions = array('jpeg', 'jpg');
 
+    /**
+     * upload
+     *
+     * @param  string $image
+     * @return string
+     */
     public function upload($image)
     {
         //Proxies the call to the Imaging server and pass the binary file
@@ -61,6 +75,6 @@ class ThumborUploader implements ProxyUploader
             throw new Exception\ServerError('Error Thumbor uploader. Check log.');
         }
 
-        return $response->getHeader('Location')[0];
+        return str_replace('/image', '', $response->getHeader('Location')[0]);
     }
 }
