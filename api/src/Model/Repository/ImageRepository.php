@@ -3,6 +3,7 @@
 namespace Favoroute\Model\Repository;
 
 use Favoroute\Model\Entity\Image;
+use Favoroute\Exception;
 
 /**
  *
@@ -58,7 +59,6 @@ class ImageRepository
             $stmt->bindValue(':height', $image->getHeight());
             $stmt->bindValue(':url', $image->getUrl());
             $stmt->bindValue(':userId', $image->getUser());
-            $stmt->bindValue(':userId', $image->getUser());
             $stmt->bindValue(':createdAt', $now->format("Y-m-d H:i:s"));
 
             $stmt->execute();
@@ -67,10 +67,12 @@ class ImageRepository
             throw $e;
         }
 
-        if ($id = $this->db->lastInsertId()) {
-            $image->setId($id);
-            $image->setTimestamp($now->format("Y-m-d H:i:s"));
+        if (!$id = $this->db->lastInsertId()) {
+            throw new Exception\ServerError('Error while persisting the image');
         }
+
+        $image->setId($id);
+        $image->setTimestamp($now->format("Y-m-d H:i:s"));
 
         return $image;
     }
