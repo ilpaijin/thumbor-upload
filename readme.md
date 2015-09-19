@@ -29,7 +29,7 @@
     ServerAdmin webmaster@localhost
     DocumentRoot /Library/WebServer/httproot/favoroute/challenge/api/public
 
-    AliasMatch ^/lastest(.*) /Library/WebServer/httproot/favoroute/challenge/api/public/public$1
+    AliasMatch ^/lastest(.*) /Library/WebServer/httproot/favoroute/challenge/api/public/$1
 
     <Directory /Library/WebServer/httproot/favoroute/challenge/api/public/>
         Options Indexes FollowSymLinks MultiViews
