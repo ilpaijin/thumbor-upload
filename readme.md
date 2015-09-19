@@ -14,7 +14,7 @@
 
 #### run
 
-- from root folder run `make -j init` and open the browser to localhost:8000
+- from root folder run `make -j init` and open the browser at localhost:8000
 
 ##### VirtualHost example
 
