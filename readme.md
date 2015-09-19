@@ -3,14 +3,15 @@
 #### Requirement
 
 - php >= 54
-- thumbor server
+- thumbor server (local or remote)
 - composer
 
 
 #### Install
-
-- configure Api VirtualHost
-- move to api folder and run `composer install`
+- Move to api folder and run `composer install`
+- Configure Api VirtualHost
+- Set the ENV variable (development = localhost, testing = 188.226.195.167). Default is development.
+- Set the variable `thumbor_server` inside the file app.js. Default is localhost.
 
 #### run
 

@@ -1,5 +1,7 @@
 (function () {
 
+    var thumbor_server = 'http://localhost:8888/unsafe';
+
     var spinner = 'spinner.gif';
 
     var previewImage = function (input) {
@@ -45,7 +47,7 @@
                     console.info(response.data);
                     $('.upload-outcome-mark > span').addClass('success').fadeIn(1000).css("display","block");
                     $('#preview').css({'opacity': 1}).siblings('.loading').html("");
-console.info(response.data);
+
                     $('li.id').find('.value').html(response.data.id);
                     $('li.fileLabel').find('.value').html(response.data.label);
                     $('li.filename').find('.value').html(response.data.filename);
@@ -53,6 +55,8 @@ console.info(response.data);
                     $('li.height').find('.value').html(response.data.height);
                     $('li.url').find('.value').html(response.data.url);
                     $('li.created_at').find('.value').html(response.data.timestamp);
+
+                    $('.crop').find('img').attr('src', thumbor_server+'/100x75'+response.data.url).fadeIn();
                 }
             }
         });
